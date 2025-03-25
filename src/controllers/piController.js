@@ -64,6 +64,7 @@ module.exports = {
     res.json(grupo_id);
     },        
 
+    //verificar isso aqui
     getPost: async(req,res) => {
     let id = req.params.id;
     let post_id = await servicesPI.getPost(id)
@@ -71,7 +72,7 @@ module.exports = {
     res.json(post_id);
     },
 
-    getReaction: async(req,res) => {
+    getReactionFeed: async(req,res) => {
     let id = req.params.id;
     let reaction_id = await servicesPI.getReaction(id)
 
