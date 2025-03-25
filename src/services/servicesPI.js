@@ -43,7 +43,7 @@ module.exports = {
 
     postFeed:(conteudo,foto,tempoTreino) => {
         return new Promise((accept,denied) => {
-            db.query('insert into feed (conteudo, foto, tempo_treino) values (?,?,?)',[conteudo],[foto],[tempoTreino], (error,result) =>{
+            db.query('insert into feed (conteudo, foto, tempo_treino) values (?,?,?)',[conteudo,foto,tempoTreino], (error,result) =>{
                     if(error) {denied(error); return}
                     accept(result);
             })
@@ -52,7 +52,7 @@ module.exports = {
 
     postReaction:(idPublicacao,idComentario,idReacao) => {
         return new Promise((accept,denied) => {
-            db.query('insert into reacao_control (id_publi, id_coment, id_reacao) values (?,?,?)',[idPublicacao],[idComentario],[idReacao], (error,result) =>{
+            db.query('insert into reacao_control (id_publi, id_coment, id_reacao) values (?,?,?)',[idPublicacao,idComentario,idReacao], (error,result) =>{
                     if(error) {denied(error); return}
                     accept(result);
             })
@@ -61,7 +61,7 @@ module.exports = {
 
     getUsuario:(email, senha) => {
         return new Promise((accept,denied) => {
-            db.query('select nome from usuario where email like \'%?%\' and senha = \'?\'', [email],[senha],(error,result) => {
+            db.query('select nome from usuario where email like \'%?%\' and senha = \'?\'', [email,senha],(error,result) => {
                     if(error) {denied(error); return}
                     accept(result);
             })
