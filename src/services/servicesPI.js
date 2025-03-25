@@ -1,22 +1,22 @@
-const { postUsuario } = require('../controllers/piController');
-const { postFeed } = require('../controllers/piController');
-const { getGrupo } = require('../controllers/piController');
-const { deleteGrupo } = require('../controllers/piController');
-const { getPost } = require('../controllers/piController');
-const { getReaction } = require('../controllers/piController');
-const { deleteReaction } = require('../controllers/piController');
-const { postReaction } = require('../controllers/piController');
-const { deletePost } = require('../controllers/piController');
-const { deleteUsuario } = require('../controllers/piController');
-const { getUsuario } = require('../controllers/piController');
-const { postGrupo } = require('../controllers/piController');
-const { getClient, deleteClient } = require('../controllers/piController');
+// const { postUsuario } = require('../controllers/piController');
+// const { postFeed } = require('../controllers/piController');
+// const { getGrupo } = require('../controllers/piController');
+// const { deleteGrupo } = require('../controllers/piController');
+// const { getPost } = require('../controllers/piController');
+// const { getReaction } = require('../controllers/piController');
+// const { deleteReaction } = require('../controllers/piController');
+// const { postReaction } = require('../controllers/piController');
+// const { deletePost } = require('../controllers/piController');
+// const { deleteUsuario } = require('../controllers/piController');
+// const { getUsuario } = require('../controllers/piController');
+// const { postGrupo } = require('../controllers/piController');
+// const { getClient, deleteClient } = require('../controllers/piController');
 const db = require('../db')
 module.exports = {
 
     postUsuario:(usuario,cpf,email,senha) => {
         return new Promise((accept,denied) => {
-            db.query('insert into usuario (nome, CPF, email, senha) values (?,?,?,?)',[usuario],[cpf], [email],[senha], (error,result) =>{ 
+            db.query('insert into usuario (nome, CPF, email, senha) values (?,?,?,?)',[usuario],[cpf],[email],[senha], (error,result) =>{ 
                 	if(error) {denied(error); return}
                     accept(result);
             })
@@ -34,7 +34,7 @@ module.exports = {
 
     postGrupoMembro:(id_usuario,id_grupo) => {
         return new Promise((accept,denied) => {
-            db.query('insert into grupo (nome_grupo) values (?)',[id_usuario],[id_grupo], (error,result) =>{
+            db.query('insert into grupo_membro (id_usuario, id_grupo) values (?)',[id_usuario],[id_grupo], (error,result) =>{
                     if(error) {denied(error); return}
                     accept(result);
             })
