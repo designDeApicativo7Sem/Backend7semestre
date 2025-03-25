@@ -1,16 +1,136 @@
 const { postUsuario } = require('../controllers/piController');
+const { postFeed } = require('../controllers/piController');
+const { getGrupo } = require('../controllers/piController');
+const { deleteGrupo } = require('../controllers/piController');
+const { getPost } = require('../controllers/piController');
+const { getReaction } = require('../controllers/piController');
+const { deleteReaction } = require('../controllers/piController');
+const { postReaction } = require('../controllers/piController');
+const { deletePost } = require('../controllers/piController');
+const { deleteUsuario } = require('../controllers/piController');
+const { getUsuario } = require('../controllers/piController');
+const { postGrupo } = require('../controllers/piController');
 const { getClient, deleteClient } = require('../controllers/piController');
 const db = require('../db')
 module.exports = {
-    postUsuario:() => {
+
+    postUsuario:(usuario,cpf,email,senha) => {
         return new Promise((accept,denied) => {
-            db.query('', (error,result) =>{ 
+            db.query('insert into usuario (nome, CPF, email, senha) values (?,?,?,?)',[usuario],[cpf], [email],[senha], (error,result) =>{ 
                 	if(error) {denied(error); return}
                     accept(result);
             })
         })
-    }
+    },
 
+    postGrupo:(nome_grupo) => {
+        return new Promise((accept,denied) => {
+            db.query('insert into grupo (nome_grupo) values (?)',[nome_grupo], (error,result) =>{
+                    if(error) {denied(error); return}
+                    accept(result);
+            })
+        })
+    },
+
+    postGrupoMembro:(id_usuario,id_grupo) => {
+        return new Promise((accept,denied) => {
+            db.query('insert into grupo (nome_grupo) values (?)',[id_usuario],[id_grupo], (error,result) =>{
+                    if(error) {denied(error); return}
+                    accept(result);
+            })
+        })
+    },
+
+    postFeed:(conteudo,foto,tempoTreino) => {
+        return new Promise((accept,denied) => {
+            db.query('insert into feed (conteudo, foto, tempo_treino) values (?,?,?)',[conteudo],[foto],[tempoTreino], (error,result) =>{
+                    if(error) {denied(error); return}
+                    accept(result);
+            })
+        })
+    },
+
+    postReaction:(idPublicacao,idComentario,idReacao) => {
+        return new Promise((accept,denied) => {
+            db.query('insert into reacao_control (id_publi, id_coment, id_reacao) values (?,?,?)',[idPublicacao],[idComentario],[idReacao], (error,result) =>{
+                    if(error) {denied(error); return}
+                    accept(result);
+            })
+        })
+    },
+
+    getUsuario:(email, senha) => {
+        return new Promise((accept,denied) => {
+            db.query('select nome from usuario where email like \'%?%\' and senha = \'?\'', [email],[senha],(error,result) => {
+                    if(error) {denied(error); return}
+                    accept(result);
+            })
+        })
+    },
+
+    getGrupo:(id) => {
+        return new Promise((accept,denied) => {
+            db.query('select * from grupo where id = ?',[id], (error,result) => {
+                    if(error) {denied(error); return}
+                    accept(result);
+            })
+        })
+    },
+
+    getPost:() => {
+        return new Promise((accept,denied) => {
+            db.query('', (error,result) => {
+                    if(error) {denied(error); return}
+                    accept(result);
+            })
+        })
+    },
+
+    getReaction:() => {
+        return new Promise((accept,denied) => {
+            db.query('', (error,result) => {
+                    if(error) {denied(error); return}
+                    accept(result);
+            })
+        })
+    },
+
+
+    deleteUsuario:() => {
+        return new Promise((accept,denied) => {
+            db.query('', (error,result) => {
+                    if(error) {denied(error); return}
+                    accept(result);
+            })
+        })
+    },
+
+    deleteGrupo:() => {
+        return new Promise((accept,denied) => {
+            db.query('', (error,result) => {
+                    if(error) {denied(error); return}
+                    accept(result);
+            })
+        })
+    },
+
+    deletePost:() => {
+        return new Promise((accept,denied) => {
+            db.query('', (error,result) => {
+                    if(error) {denied(error); return}
+                    accept(result);
+            })
+        })
+    },
+
+    deleteReaction:() => {
+        return new Promise((accept,denied) => {
+            db.query('', (error,result) => {
+                    if(error) {denied(error); return}
+                    accept(result);
+            })
+        })
+    },
 
     // getAllAGV: () => {
     //     return new Promise((accept, denied) => {

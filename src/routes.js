@@ -11,8 +11,30 @@ const piController = require('./controllers/piController');
 
 // router.put('/Controlar_veiculo/:id', piController.putControlar_veiculo); // rota que será utilizada no 6º semestre. insere dado
 
-router.post('/usuario/:usuario/:cpf/:email/:senha/:user',piController.postUsuario);
+router.post('/usuario/:usuario/:cpf/:email/:senha',piController.postUsuario);
 
+router.post('/grupo/:nome_grupo',piController.postGrupo);
 
+router.post('/grupomembro/:id_usuario/:id_grupo',piController.postGrupoMembro);
+
+router.post('/feed/:conteudo/:foto/:tempoTreino',piController.postFeed);
+
+router.post('/reaction/:idPublicacao/:idComentario/:idReacao',piController.postReaction);
+
+router.get('/getUser/:email/:senha',piController.getLogin);
+
+router.get('/getGroup/:id',piController.getGrupo);
+
+router.get('/getPost/:id', piController.getPost);
+
+router.get('/getReaction/:id', piController.getReaction);
+
+router.delete('/deleteuser/:id',piController.deleteUsuario);
+
+router.delete('/deletegroup/:id',piController.deleteGrupo);
+
+router.delete('/deletepost/:id',piController.deletePost);
+
+router.delete('/deletereac/:id',piController.deleteReaction);
 
 module.exports = router;
