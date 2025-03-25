@@ -78,6 +78,13 @@ module.exports = {
 
     res.json(reaction_id);
     },
+    
+    getReactionComent: async(req,res) => {
+    let id = req.params.id;
+    let reaction_id = await servicesPI.getReaction(id)
+    
+    res.json(reaction_id);
+    },
 
   // Aba para deletar coisas 
 

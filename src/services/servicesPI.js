@@ -34,7 +34,7 @@ module.exports = {
 
     postGrupoMembro:(id_usuario,id_grupo) => {
         return new Promise((accept,denied) => {
-            db.query('insert into grupo_membro (id_usuario, id_grupo) values (?)',[id_usuario],[id_grupo], (error,result) =>{
+            db.query('insert into grupo_membro (id_usuario, id_grupo) values (?, ?)',[id_usuario,id_grupo], (error,result) =>{
                     if(error) {denied(error); return}
                     accept(result);
             })
@@ -87,6 +87,15 @@ module.exports = {
     },
 
     getReactionFeed:() => {
+        return new Promise((accept,denied) => {
+            db.query('', (error,result) => {
+                    if(error) {denied(error); return}
+                    accept(result);
+            })
+        })
+    },
+
+    getReactionComent:() => {
         return new Promise((accept,denied) => {
             db.query('', (error,result) => {
                     if(error) {denied(error); return}

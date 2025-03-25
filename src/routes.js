@@ -29,7 +29,7 @@ router.get('/getPost/:id', piController.getPost);
 
 router.get('/getReaction/:id', piController.getReactionFeed);
 
-router.get('/getReaction/:id', piController.getReactionFeed);
+router.get('/getReaction/:id', piController.getReactionComent);
 
 router.delete('/deleteuser/:id',piController.deleteUsuario);
 
