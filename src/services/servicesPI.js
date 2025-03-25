@@ -16,7 +16,7 @@ module.exports = {
 
     postUsuario:(usuario,cpf,email,senha) => {
         return new Promise((accept,denied) => {
-            db.query('insert into usuario (nome, CPF, email, senha) values (?,?,?,?)',[usuario],[cpf],[email],[senha], (error,result) =>{ 
+            db.query('insert into usuario (nome, CPF, email, senha) values (?,?,?,?)',[usuario,cpf,email,senha], (error,result) =>{ 
                 	if(error) {denied(error); return}
                     accept(result);
             })
@@ -86,7 +86,7 @@ module.exports = {
         })
     },
 
-    getReaction:() => {
+    getReactionFeed:() => {
         return new Promise((accept,denied) => {
             db.query('', (error,result) => {
                     if(error) {denied(error); return}

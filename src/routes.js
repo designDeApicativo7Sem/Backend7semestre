@@ -27,7 +27,9 @@ router.get('/getGroup/:id',piController.getGrupo);
 
 router.get('/getPost/:id', piController.getPost);
 
-router.get('/getReaction/:id', piController.getReaction);
+router.get('/getReaction/:id', piController.getReactionFeed);
+
+router.get('/getReaction/:id', piController.getReactionFeed);
 
 router.delete('/deleteuser/:id',piController.deleteUsuario);
 
