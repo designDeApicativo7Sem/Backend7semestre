@@ -11,7 +11,7 @@ const piController = require('./controllers/piController');
 
 // router.put('/Controlar_veiculo/:id', piController.putControlar_veiculo); // rota que será utilizada no 6º semestre. insere dado
 
-router.post('/usuario/:usuario/:cpf/:email/:senha',piController.postUsuario);
+router.post('/usuario/:nome/:cpf/:email/:senha',piController.postUsuario);
 
 router.post('/grupo/:nome_grupo',piController.postGrupo);
 

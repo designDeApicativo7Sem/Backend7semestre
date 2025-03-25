@@ -4,10 +4,11 @@ const servicesPI = require('../services/servicesPI');
 
 module.exports = {    
     postUsuario: async(req,res) => {
-    let usuario = req.params.usuario;
+    let usuario = req.params.nome;
     let cpf = req.params.cpf;
     let email = req.params.email;
     let senha = req.params.senha;
+    
     let user = await servicesPI.postUsuario(usuario,cpf,email,senha)
 
     res.json(user);
