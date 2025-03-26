@@ -23,6 +23,7 @@ module.exports = {
         })
     },
 
+
     postGrupo:(nome_grupo) => {
         return new Promise((accept,denied) => {
             db.query('insert into grupo (nome_grupo) values (?)',[nome_grupo], (error,result) =>{
@@ -77,27 +78,27 @@ module.exports = {
         })
     },
 
-    getPost:() => {
+    getFeed:(idGrupo) => {
         return new Promise((accept,denied) => {
-            db.query('', (error,result) => {
+            db.query('SELECT f.* FROM feed f inner join grupo_membro gm on gm.id_usuario = f.id_usuario and gm.id_grupo = ? order by f.data_publi desc LIMIT 100', [idGrupo], (error,result) => {
                     if(error) {denied(error); return}
                     accept(result);
             })
         })
     },
 
-    getReactionFeed:() => {
+    getReactionFeed:(idFeed) => {
         return new Promise((accept,denied) => {
-            db.query('', (error,result) => {
+            db.query('select rc.id_publi, rc.id_reacao, rc.id_reacao, r.nome_reacao, count(1) from reacao_control rc inner join reacao r on (r.id_reacao = rc.id_reacao) where rc.id_publi = ? GROUP BY rc.id_publi, rc.id_reacao, rc.id_reacao, r.nome_reacao', [idFeed],(error,result) => {
                     if(error) {denied(error); return}
                     accept(result);
             })
         })
     },
 
-    getReactionComent:() => {
+    getReactionComent:(idComent) => {
         return new Promise((accept,denied) => {
-            db.query('', (error,result) => {
+            db.query('select rc.id_coment, rc.id_reacao, rc.id_reacao, r.nome_reacao, count(1) from reacao_control rc inner join reacao r on (r.id_reacao = rc.id_reacao) where rc.id_publi = ? GROUP BY rc.id_publi, rc.id_reacao, rc.id_reacao, r.nome_reacao', [idComent],(error,result) => {
                     if(error) {denied(error); return}
                     accept(result);
             })

@@ -25,11 +25,11 @@ router.get('/getUser/:email/:senha',piController.getLogin);
 
 router.get('/getGroup/:id',piController.getGrupo);
 
-router.get('/getPost/:id', piController.getPost);
+router.get('/getFeed/:idGrupo', piController.getFeed);
 
-router.get('/getReaction/:id', piController.getReactionFeed);
+router.get('/getReaction/:idFeed', piController.getReactionFeed);
 
-router.get('/getReaction/:id', piController.getReactionComent);
+router.get('/getReaction/:idComent', piController.getReactionComent);
 
 router.delete('/deleteuser/:id',piController.deleteUsuario);
 

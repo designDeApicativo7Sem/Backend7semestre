@@ -65,23 +65,23 @@ module.exports = {
     },        
 
     //verificar isso aqui
-    getPost: async(req,res) => {
-    let id = req.params.id;
-    let post_id = await servicesPI.getPost(id)
+    getFeed: async(req,res) => {
+    let idGrupo = req.params.idGrupo;
+    let post_id = await servicesPI.getFeed(idGrupo)
     
     res.json(post_id);
     },
 
     getReactionFeed: async(req,res) => {
     let id = req.params.id;
-    let reaction_id = await servicesPI.getReaction(id)
+    let reaction_id = await servicesPI.getReaction(idFeed)
 
     res.json(reaction_id);
     },
     
     getReactionComent: async(req,res) => {
     let id = req.params.id;
-    let reaction_id = await servicesPI.getReaction(id)
+    let reaction_id = await servicesPI.getReaction(idComent)
     
     res.json(reaction_id);
     },
