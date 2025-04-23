@@ -13,30 +13,30 @@ const piController = require('./controllers/piController');
 
 router.post('/usuario/:nome/:cpf/:email/:senha',piController.postUsuario);
 
-router.post('/grupo/:nome_grupo',piController.postGrupo);
+// router.post('/grupo/:nome_grupo',piController.postGrupo);
 
-router.post('/grupomembro/:id_usuario/:id_grupo',piController.postGrupoMembro);
+// router.post('/grupomembro/:id_usuario/:id_grupo',piController.postGrupoMembro);
 
-router.post('/feed/:conteudo/:foto/:tempoTreino',piController.postFeed);
+// router.post('/feed/:conteudo/:foto/:tempoTreino',piController.postFeed);
 
-router.post('/reaction/:idPublicacao/:idComentario/:idReacao',piController.postReaction);
+// router.post('/reaction/:idPublicacao/:idComentario/:idReacao',piController.postReaction);
 
-router.get('/getUser/:email/:senha',piController.getLogin);
+// router.get('/getUser/:email/:senha',piController.getLogin);
 
-router.get('/getGroup/:id',piController.getGrupo);
+// router.get('/getGroup/:id',piController.getGrupo);
 
-router.get('/getFeed/:idGrupo', piController.getFeed);
+// router.get('/getFeed/:idGrupo', piController.getFeed);
 
-router.get('/getReaction/:idFeed', piController.getReactionFeed);
+// router.get('/getReaction/:idFeed', piController.getReactionFeed);
 
-router.get('/getReaction/:idComent', piController.getReactionComent);
+// router.get('/getReaction/:idComent', piController.getReactionComent);
 
-router.delete('/deleteuser/:id',piController.deleteUsuario);
+// router.delete('/deleteuser/:id',piController.deleteUsuario);
 
-router.delete('/deletegroup/:id',piController.deleteGrupo);
+// router.delete('/deletegroup/:id',piController.deleteGrupo);
 
-router.delete('/deletepost/:id',piController.deletePost);
+// router.delete('/deletepost/:id',piController.deletePost);
 
-router.delete('/deletereac/:id',piController.deleteReaction);
+// router.delete('/deletereac/:id',piController.deleteReaction);
 
 module.exports = router;
